@@ -1,0 +1,241 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="/dist/output.css" rel="stylesheet">
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+  <!--https://github.com/iamshaunjp/tailwind-tutorial/-->
+</head>
+
+<body class="text-gray-600 font-Montserrat">
+  <div class="grid md:grid-custom md:justify-end">
+    <div class="md:col-span-1 md:justify-end">
+      <nav class="text-right">
+        <div class="flex justify-between items-center">
+          <h1 class="font-bold uppercase p-4 border-b border-gray-100">
+            <a href="/" class="hover:text-gray-700">Food Ninja</a>
+          </h1>
+          <div class="px-4 cursor-pointer md:hidden" id="burger">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+          </div>
+        </div>
+        <ul class="text-sm mt-6 hidden md:block" id="menu">
+          <li class="text-gray-700 font-bold py-1 border-r-4 border-x-primary">
+            <a href="#" class="px-4 flex justify-end">
+              <span>Home</span>
+              <svg class="w-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6">
+                </path>
+              </svg>
+            </a>
+          </li>
+          <li class="py-1">
+            <a href="#" class="px-4 flex justify-end border-r-4 border-x-white ">
+              <span>About</span>
+              <svg class="w-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z">
+                </path>
+              </svg>
+            </a>
+          </li>
+          <li class="py-1 border-r-4 border-x-white">
+            <a href="#" class="px-4 flex justify-end">
+              <span>Contact</span>
+              <svg class="w-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
+                </path>
+              </svg>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+
+    <main class="px-16 py-6 md:col-span-2">
+      <div class="flex justify-center md:justify-end">
+        <a href="#"
+          class="btn first-letter text-primary border-primary md:border-2 hover:bg-primary hover:text-white transition ease-out duration-500">
+          Log in</a>
+        <a href="#"
+          class="btn text-primary ml-2 border-primary md:border-2 hover:bg-primary hover:text-white transition ease-out duration-500">Sign
+          up</a>
+      </div>
+
+      <!-- <div class="flex items-end">
+        <div class="bg-red-500 h-4 w-6"></div>
+        <div class="bg-blue-500 h-8 w-6"></div>
+        <div class="bg-green-500 h-12 w-6"></div>
+      </div>-->
+      <header class="p-4 m-2 rounded bg-cover bg-blue-600 text-white"
+        style="background-image: url(/src/img/hotel.jpg1); min-height: 400px;">
+        <div class="m-2">
+          <a href="#" class="btn   bg-blue-500 text-white    border-2 transition ease-out duration-500">Hébergement</a>
+          <a href="#"
+            class="btn   bg-white    text-blue-500 border-2  m-l-8  hover:bg-blue-500 hover:text-white transition ease-out duration-500">Location
+            de voiture</a>
+        </div>
+        <h2 class="text-4xl font-bold mt-4 text-white">BÉNIN : Trouvez les hôtels et locations de voitures </h2>
+        <h2 class="text-4xl font-light mt-4 text-white">1200 locations et hôtels vous y attendent</h2>
+
+     
+
+       <div class="flex justify-start" id="searchZone">
+
+        <div class="flex" id="location">
+          <div class="flex"> 
+            <span class="bg-white"><svg class="w-10" fill="none" stroke="gray" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg></span>
+            <input class="outline-0 text-gray-600 text-xl" type="text" placeholder="Où allez-vous ?">
+            <button>x</button>
+          </div>
+         
+        </div>      
+       
+       
+        <div id="range">
+          <span><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+            </svg></span>
+          <input type="text" name="daterange" class="text-blue-500" />
+
+          <script>
+            $(function () {
+              $('input[name="daterange"]').daterangepicker({
+                opens: 'left',
+                timePicker: false,
+                startDate: moment(),
+                endDate: moment().add(1, 'day'),
+                minDate: moment(),
+                locale: {
+                  format: 'ddd DD MMM.'
+                }
+              }, function (start, end, label) {
+                console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
+              });
+            });
+          </script>
+        </div>
+
+        <div class="flex" id="room">
+          <span></span>
+          <span>2 adultes</span> .
+          <span> 1 enfant</span> .
+          <span> 1 chambre enfant</span>
+
+        </div>
+        
+        <div class="flex" id="btnSearch">
+          <button class="btn bg-blue-700 text-white lowercase"> Rechercher</button>
+        </div>
+      
+      
+      </div>
+
+
+
+
+
+
+      </header>
+
+
+
+
+      <!--<header class="bg-white">
+        <h2 class="text-gray-700 text-6xl font-semibold">Trouvez votre prochain séjour</h2>
+        <h3 class="text-2xl font-semibold">Recherchez des offres sur des hôtels, des hébergements indépendants et plus encore</h3>
+      </header>-->
+
+
+
+
+      <div>
+
+        <h4 class="font-bold mt-12 pb-2 border-b border-gray-200">Latest Recipes</h4>
+
+        <div class="mt-8 grid lg:grid-cols-3 gap-10">
+          <!-- cards go here -->
+          <div class="card hover:shadow-lg">
+            <img class="w-full h-32 sm:h-48 object-cover" src="img/stew.jpg" alt="stew">
+            <div class="m-4">
+              <span class="font-bold">5 Bean Chili Stew</span>
+              <span class="block text-gray-500 text-sm">Recipe by Mario</span>
+            </div>
+            <div class="badge">
+              <svg class="w-5 inline-block" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+              <span>25 min</span>
+            </div>
+          </div>
+
+          <div class="card hover:shadow-lg">
+            <img class="w-full h-32 sm:h-48 object-cover" src="img/noodles.jpg" alt="noodles">
+            <div class="m-4">
+              <span class="font-bold">Veg Noodles</span>
+              <span class="block text-gray-500 text-sm">Recipe by Mario</span>
+            </div>
+            <div class="badge">
+              <svg class="w-5 inline-block" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+              <span>25 min</span>
+            </div>
+          </div>
+
+          <div class="card hover:shadow-lg">
+            <img class="w-full h-32 sm:h-48 object-cover" src="img/curry.jpg" alt="curry">
+            <div class="m-4">
+              <span class="font-bold">Tofu Curry</span>
+              <span class="block text-gray-500 text-sm">Recipe by Mario</span>
+            </div>
+            <div class="badge">
+              <svg class="w-5 inline-block" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+              <span>25 min</span>
+            </div>
+          </div>
+
+        </div>
+
+        <h4 class="font-bold mt-12 pb-2 border-b border-gray-200">Most Popular</h4>
+
+        <div class="mt-8">
+          <!-- cards go here -->
+        </div>
+      </div>
+
+      <div class="flex justify-center">
+        <div
+          class="btn bg-secondary-100 text-secondary-200 hover:shadow-inner transform hover:scale-125 hover:bg-opacity-50 transition ease-out duration-300">
+          Load more</div>
+      </div>
+    </main>
+  </div>
+
+  <script src="index.js"></script>
+</body>
+
+</html>
